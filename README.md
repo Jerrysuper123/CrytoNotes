@@ -12,5 +12,33 @@ SAML is esp useful in micro-service cloud environment, where we just need to aut
 - With SSO, a user signs in at a single login screen and can then use a number of apps. Users do not need to confirm their identity with every single service they use.
 - For this to take place, the SSO system must communicate with every external app to tell them that the user is signed in — which is where SAML comes into play.
 
+## Idp (identity provider)
+- An identity provider (IdP) is a cloud software service that stores and confirms user identity, typically through a login process. 
+- Essentially, an IdP's role is to say, "I know this person, and here is what they are allowed to do."
 
+## How does SMAL work
+A typical SSO authentication process involves these three parties:
+- Principal (also known as the "subject") - user trying to login
+- Identity provider e.g. AWS idp
+- Service provider e.g. AWS cloud service or cloud hosted application e.g. Gmail or Ms office 365, Slack
+
+Ordinarily a user would just log in to these services directly, but when SSO is used, the user logs into the SSO instead, and SAML is used to give them access instead of a direct login.
+So user -> SSO (behave like a server) -> SAML (standardize ways)
+
+Here is the flow [p -> SP request auth letter -> idp (SAML assertion/reference letter) -> SP (p verified by letter) -> p (you can log in now)]:
+- The principal makes a request of the service provider. 
+- The service provider then requests authentication from the identity provider. 
+- The identity provider sends a SAML assertion to the service provider, and the service provider can - then send a response to the principal.
+- If the principal (the user) was not already logged in, the identity provider may prompt them to log in before sending a SAML assertion.
+
+## SAML assertion is just like a reference letter from Idp to service provider
+- A SAML assertion is the message that tells a service provider that a user is signed in. 
+- SAML assertions (mark up language just like HTTP code to be consumed by service provider server) contain all the information necessary for a service provider to confirm user identity, including the source of the assertion, the time it was issued, and the conditions that make the assertion valid.
+- Think of a SAML assertion as being like the contents of a reference for a job candidate: the person providing the reference says when and for how long they worked with the candidate, what their role was, and their opinion on the candidate. Based on this reference, a company can make a decision about hiring the candidate,
+
+## difference between Authen (Authenticate somebody) and Author (authorize some permissions)
+- Authentication refers to a user's identity: who they are and whether their identity has been confirmed by a login process.
+
+- Authorization refers to a user's privileges or permissions: specifically, what actions they are allowed to perform within a company's systems.
+  
 ![Alt text](./3way.jpg)
