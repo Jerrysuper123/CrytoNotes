@@ -40,5 +40,31 @@ Here is the flow [p -> SP request auth letter -> idp (SAML assertion/reference l
 - Authentication refers to a user's identity: who they are and whether their identity has been confirmed by a login process.
 
 - Authorization refers to a user's privileges or permissions: specifically, what actions they are allowed to perform within a company's systems.
+
+## 3 way handshake crypto SSL
+1. Client initiate a hello to server with
+- Cipher suite (available crypto algo on my side)
+- SSL version (what version do i have)
+- Random value from client (RC for now)
+
+2. Server send hello back to client with
+- Chosen crypto algo among cipher suite
+- SSL certificate (with public key stored inside)
+- Random value from server (RS for now)
+
+3. Client sends:
+- Pre-master secret (PMS), which is encrypted using Server's public key
+
+The final step is to establish a symmetrical encryption key for speed, so both sides have the same key
+```
+Same key = RC + RS + PMS
+```
+In above steps, they are mixture of asmmetrical and symmetrical methods, commonly used in modern crypto:
+- we have used Asymmetrical method (PKI) to encrypt PMS
+- We have used DHKE (Diffe Hellman Key Exchange) Algo to share the same key
+- Finally, we are using symmetrical key for SSL for speed
   
 ![Alt text](./3way.jpg)
+
+## What is DHKE (Diffe Hellman Key Exchange) Algo to share the same key
+The objective to pass the symmetrical key from insecure channels from one person to another.
