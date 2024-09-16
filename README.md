@@ -62,7 +62,13 @@ How does DSA works? It is mainly the reverse of the usual PKI flow.
 - Client decrypts the ciphertext using the public key to see the plaintext
 
 How does RSA work for digital signature?
-
+- Slightly more complicated than DSA by adding in hash function
+- On sender's side, orignal message M is hashed into a digest 1, which is then encrypted using receiver's public key as ciphertext
+- The payload to be sent consist of M + ciphtertext
+- Receiver received the payload
+1. Use the same hash function to hash the M into digest 2
+2. Then decrypt the ciphertext using its own private key into digest 1
+3. Then compares digest 2 with digest 1 to verify the originality of the document
 ![RSA](./RSA.jpg)
 
 ## FiDO
