@@ -63,6 +63,7 @@ How does DSA works? It is mainly the reverse of the usual PKI flow.
 
 How does RSA work for digital signature?
 
+![RSA](./RSA.jpg)
 
 ## FiDO
 FiDo is fast identity online - it is a way to do away with password, by using public key infrastructuure for authentication.
