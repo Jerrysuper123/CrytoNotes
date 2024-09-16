@@ -38,6 +38,11 @@ As you shall see later, nowdays symmetrical and asymmetrical encryptions are com
 
 SSL uses a combination of symmetrical and asymmetrical encryptions for 3 way handshake.
 
+For example, AE could be used to share SE key
+- Sender uses receiver's public key to encrypt the SE Key
+- Receiver uses its own private key to decrypt the SE key
+- So both ends have the plaintext key
+
 ## Hashing
 Hashing is a method/function to scramble data beyond recognition.
 - Hashing always return fixed value
@@ -51,6 +56,13 @@ It is a way to verify the authencity of the document.
 There are 2 kinds of algo:
 1. RSA (Rivest–Shamir–Adleman)
 2. DSA (Digital signature algorithm)
+
+How does DSA works? It is mainly the reverse of the usual PKI flow.
+- Server encrypts a document using private key into ciphertext
+- Client decrypts the ciphertext using the public key to see the plaintext
+
+How does RSA work for digital signature?
+
 
 ## FiDO
 FiDo is fast identity online - it is a way to do away with password, by using public key infrastructuure for authentication.
