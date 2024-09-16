@@ -1,5 +1,63 @@
 # CrytoNotes
 
+## Cryptography what is it
+Science of scrambling message beyond recognition
+
+some terms:
+- plaintext (orignal message that could be read)
+- ciphertext (encrypted message)
+- decryption key (use this key to decrypt ciphertext into plaintext)
+- two types of encryption
+1. Symmetrical - same key shared across two persons
+2. Asymmetrical - different key shared across two persons e.g. RSA
+   - most commonly known as PKI (Public key infrastructure)
+   - Public key - Sender uses receiver's public key to encrypt message
+   - Private key - Receiver uses its own private key to decrypt the message
+  
+## symmetrical encryption (SE)
+There are two kinds of ways to encrypt the message
+1. block cipher - segment the message into blocks of bits, and then encrypt it
+2. stream cipher - encrypt message bit by bit
+
+AES 256, Advanced Encryption Standards, is the most commonly used standards nowdays, replacing DES (Data Encryption Standards, which is cracked by brute force due to rising computer power).
+
+SE is also called the private key infrastructure (because only 1 key).
+
+As SE is faster than AE below, below are some of its applications:
+1. Bank transaction - fast
+2. Encrypt server data - fast for large amounts of data
+3. HTTPS encryption - fast for large streams of data
+
+## asymmetrical encryption (AE)
+Most commonly known as PKI with a public and private key.
+RSA is the most commonly used PKI standards. However, RSA uses block cipher and slower than AES (symmetrical encryption).
+
+As you shall see later, nowdays symmetrical and asymmetrical encryptions are commonly used together due to its strength and speed:
+- Asymmetrical - high defence strength but slower
+- Symmetrical - relatively lower defence strength but faster
+
+SSL uses a combination of symmetrical and asymmetrical encryptions for 3 way handshake.
+
+## Hashing
+Hashing is a method/function to scramble data beyond recognition.
+- Hashing always return fixed value
+- You cannot reverse output to its input
+- Commonly used to hash passward into digest to be stored in database
+
+Digest is the output from the hash function.
+
+## Digital signature
+It is a way to verify the authencity of the document.
+There are 2 kinds of algo:
+1. RSA (Rivest–Shamir–Adleman)
+2. DSA (Digital signature algorithm)
+
+## FiDO
+FiDo is fast identity online - it is a way to do away with password, by using public key infrastructuure for authentication.
+
+## U2F
+Universal Second Factor authentication - after keying in password, use sms or Yubikey as the second layer of protection.
+
 ## SAML (Security Assertion Markup Language) - authenticate once and tell all application this person is legit
 - SAML, is a standardized way to tell external applications and services that a user is who they say they are. 
 - SAML makes single sign-on (SSO) technology possible by providing a way to authenticate a user once and then communicate that authentication to multiple applications. 
