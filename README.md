@@ -189,3 +189,7 @@ In above steps, they are mixture of asmmetrical and symmetrical methods, commonl
 
 ## What is DHKE (Diffe Hellman Key Exchange) Algo to share the same key
 The objective to pass the symmetrical key from insecure channels from one person to another.
+Person A has
+| Private key       | Public key  |
+|------------|------|
+| Pr1  | Pu   |
