@@ -51,7 +51,7 @@ Hashing is a method/function to scramble data beyond recognition.
 
 Digest is the output from the hash function.
 
-1. Hashing is a standard way to store password on database
+### Hashing is a standard way to store password on database
 - Admin also cannot see the password
 - There is no way to reverse the cipher password
 - There is no decryption key
@@ -61,14 +61,14 @@ How is password stored in database?
 - When users tried to log in with a password, which went through the same function to get digest 2
 - Digest is compared with digest 2 to verify the identify of an user
 
-2. Hashing is used for check data intergrity
+### Hashing is used for check data intergrity
 Hashing could take in a file to generate a checksum - always-same-length string.
 
-3. There are 2 types of algo for hashing
+### There are 2 types of algo for hashing
 - MDS
 - SHA 256 (secure hashing algorithm 256)
 
-4. Hashing function guidelines
+### Hashing function guidelines
 - Consistent output for the same input
 - must be fast
 - Small change in original text will result in large change in digest
@@ -82,7 +82,7 @@ const salt = "randomSaltValue";
 const saltedPassword = password + salt; // Combine password and salt
 const hash = SHA256(saltedPassword); // Hash the salted password
 ```
-3. Peppering - adding some fixed value to the end of a text
+2. Peppering - adding some fixed value to the end of a text
 Peppering can be extremely secure, where you could store the value in the system, not the source code
 Or you could store the value in key vault for rotation to prevent hacking.
 ```
