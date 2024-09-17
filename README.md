@@ -189,7 +189,31 @@ In above steps, they are mixture of asmmetrical and symmetrical methods, commonl
 
 ## What is DHKE (Diffe Hellman Key Exchange) Algo to share the same key
 The objective to pass the symmetrical key from insecure channels from one person to another.
+
 Person A has
-| Private key       | Public key  |
+| Individual Private key       | Public key  |
 |------------|------|
 | Pr1  | Pu   |
+
+Person B has
+| Individual Private key       | Public key  |
+|------------|------|
+| Pr2  | Pu   |
+
+Note that Person A and Person B have a common public key. 
+- So Person A mixes its private and public keys together and send over the mixture Mix1 to Person B.
+- If a hacker intercept the mixture, he/she cannot separate the private key from the public key
+- And Person B mixes its private and public keys together and send over the mixture Mix2 to Person A.
+- After adding their individual private key to the mixture, each person would have a common mixture composed of 3 parts
+
+For example Person A would have a mixture of
+1. Pr2
+2. Pu
+3. Pr1
+
+Person B would have a mixture of 
+1. Pr1
+2. Pu
+3. Pr2
+
+
