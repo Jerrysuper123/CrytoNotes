@@ -191,12 +191,12 @@ In above steps, they are mixture of asmmetrical and symmetrical methods, commonl
 The objective to pass the symmetrical key from insecure channels from one person to another.
 
 Person A has
-| Individual Private key       | Public key  |
+| Individual Private key       | Common Public key  |
 |------------|------|
 | Pr1  | Pu   |
 
 Person B has
-| Individual Private key       | Public key  |
+| Individual Private key       | Common Public key  |
 |------------|------|
 | Pr2  | Pu   |
 
