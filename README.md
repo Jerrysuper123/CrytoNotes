@@ -216,4 +216,24 @@ Person B would have a mixture of
 2. Pu
 3. Pr2
 
+## PKI overview
 
+### What is a certificate in PKI
+In SSL, a certificate is used to verify the authencity of the server. It contains:
+- Public key
+- Entity info: ABC company
+- Issuer: One of the Known CAs (Certified Authority)
+- Validity period
+- Digital signature (CA sign the cert with its private key. Anyone with CA's public key to verify that it comes from the CA)
+
+How does CA signing the cert enables server authentication?
+1. Server requests CSR (Certificate signing request) to CA
+2. CA signed the cert by encrypting the cert using CA's private key
+
+On client browser's side:
+1. Browser also has pre-installed root certificates which contains CA and its public key
+2. Root certificate is a certificate from CA (Entity is CA and Issued by CA itself)
+3. When browser initiate request to server
+4. Server sends back its signed cert to browser
+5. Browser look through its root certificates to find the relevant CA
+6. Then use that CA's public key to decrypt the server certificate. If succcess, then server is the legit source.
