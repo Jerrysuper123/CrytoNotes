@@ -249,3 +249,32 @@ On client browser's side:
 6. Then use that CA's public key to verify the server certificate's digital signature.
 - Use server public key to decrypt the signature into hash digest
 - Compare with the computed digest of the certificate data
+
+### What is root cert?
+The cert is:
+- signed by CA
+- Issued by CA
+- Foundation of all cert issued by the CA
+- They are pre-installed in the browser\
+
+### what is certificate chain
+3 levels:
+- Root cert
+- Immediate cert
+- Leaf cert (for SSL/TSL)
+
+What is the use of segmenting above?
+
+### what is the purpose of cert
+- Authentication - we could identify the sources
+- Encryption - use public key to encrypt data
+- Digital signature - verify it is coming from legit sources
+
+### Too many cert, how to manage
+We could use keychains to store and manage crypto keys.
+For example, MacOS has key chain management and iCloud also has.
+
+Key vault is another way to secure and manage keys like API key, password, certrificates and other secrets.
+
+Database wallet is another way, which might come with periodical key rotation. For example, Oracle Database Wallet, which stores encryption key which encrypt the database data.
+Application first needs to connect to database wallet to get credentials before accessing the database.
