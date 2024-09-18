@@ -283,3 +283,13 @@ Key vault is another way to secure and manage keys like API key, password, certr
 
 Database wallet is another way, which might come with periodical key rotation. For example, Oracle Database Wallet, which stores encryption key which encrypt the database data.
 Application first needs to connect to database wallet to get credentials before accessing the database.
+
+### Types of cert file
+`.crt` mainly used for SSL,, containing public key, entity info and digital signature by CA
+
+`.key` usu to contain public key
+
+`.pem` similar to `.crt`
+
+`.pfx/.p12` These are PKCS#12 files that often bundle both the certificate and private key in one encrypted file.
+
