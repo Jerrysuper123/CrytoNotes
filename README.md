@@ -220,13 +220,16 @@ Person B would have a mixture of
 
 ### What is a certificate in PKI
 In SSL, a certificate is used to verify the authencity of the server. It contains:
+```
 - Public key
 - Entity info: ABC company
 - Issuer: One of the Known CAs (Certified Authority)
 - Validity period
 - Digital signature (CA sign the cert with its private key. Anyone with CA's public key to verify that it comes from the CA)
+```
 
-How does CA signing the cert enables server authentication?
+
+#### How does CA signing the cert enables server authentication?
 
 Server requests CSR (Certificate signing request) to CA
 - Server sends its public key and domain info (name etc.)
