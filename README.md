@@ -227,8 +227,15 @@ In SSL, a certificate is used to verify the authencity of the server. It contain
 - Digital signature (CA sign the cert with its private key. Anyone with CA's public key to verify that it comes from the CA)
 
 How does CA signing the cert enables server authentication?
-1. Server requests CSR (Certificate signing request) to CA
-2. CA signed the cert by encrypting the cert using CA's private key
+
+Server requests CSR (Certificate signing request) to CA
+- Server sends its public key and domain info (name etc.)
+
+CA signed the cert by signing the cert using CA's private key
+- CA passes the Server payload (public key and domain info) into a hash function to get a digest
+- Then encrypt the digest using its private key
+- The end result is the digital signature
+- So CA sends back a payload of 1. public key 2. server info 3. digital signature
 
 On client browser's side:
 1. Browser also has pre-installed root certificates which contains CA and its public key
@@ -236,4 +243,6 @@ On client browser's side:
 3. When browser initiate request to server
 4. Server sends back its signed cert to browser
 5. Browser look through its root certificates to find the relevant CA
-6. Then use that CA's public key to decrypt the server certificate. If succcess, then server is the legit source.
+6. Then use that CA's public key to verify the server certificate's digital signature.
+- Use server public key to decrypt the signature into hash digest
+- Compare with the computed digest of the certificate data
