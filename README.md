@@ -265,6 +265,11 @@ The cert is:
 
 What is the use of segmenting above?
 
+## why do we sometimes need to manually install root cert in browser
+It could be in internal dev env, we are telling browser that we trust this CA
+- could be self-signed CA
+- Could be an entirely internal CA itself
+
 ### what is the purpose of cert
 - Authentication - we could identify the sources
 - Encryption - use public key to encrypt data
