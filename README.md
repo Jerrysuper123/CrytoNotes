@@ -333,3 +333,15 @@ Include anyfolder/anyHostNames.config
 - -W instruces SSH to forward the connection to target host and port
 - %h is the placeholder for `remote-server.com`
 - %p is the placeholder for the port (by default SSH is port 22)
+
+### what is openssh
+Openssh is a command utility in terminal, which contains many functions such as SSH, SCP and tunnel etc.
+
+### What is PCKS11
+It is an API for you to interact with crypto security token such as smart cards, USB key and yubikey, usually used to read or delete the keys.
+
+### ZBT 
+Zero Based Trust - always distrust unless proving otherwise
+
+### FIPS
+Federal Information Processing Standard - US and Canadian government security requirement for crypto modules.
