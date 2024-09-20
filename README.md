@@ -301,3 +301,35 @@ Bastian host is also called jump server or jumbox.
 
 ![bastianhost](https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2022/06/09/NM-diagram-061316-a.png)
 
+Why bastian host is a fortified place?
+- Higher security - It has hardened security, because the bastian host is reduced to essential services to reduce surface attack from hackers.
+- It tracks all traffics for internal audit and logs (like anyone passing through the gate of a castle)
+- Centralized access control - we could control who could acess what instances through the bastian host, instead of adjusting user control at remote instance level
+
+### Then how do we use SSH command to jump into remote server behind bastian host
+We could include below config lines into `~.ssh/config` in macOS. When we run `ssh remote-server`, we could connect to bastian host and then tunnel towards remote server.
+- The above SSH command assumes that we have SSH agent in place.
+
+```
+Host remote-server
+  HostName remote-server.com
+  User <username>
+  ProxyCommand ssh bastion.com -W %h:%p
+```
+
+Having to many lines in 1 singel file `~/.ssh/config` might be too hard to read. So you could create many different `.config` files in other folders. And in `~/.ssh/config`, just putting in the below line, indicating to include the config lines from these files. So when you run `ssh someOtherHost`, ssh will look into below files as well to find the match.
+```
+Include anyfolder/anyHostNames.config
+```
+
+### what happened behind the scenes when you run `ssh remote-server` in the terminal
+1. SSH first looks for Host block `remote-server` in `~/.ssh/config`, or any other inclusion files
+2. When a match `remote-server` is found, ssh applies setting from that block
+3. Resolve actual server name from `remote-server` to `remote-server.com`
+4. Set the username as the username to log in remote-server.com
+5. Run proxy command to connect via bastian host
+- Open ssh to connect to bastion.com
+- Forward traffic from `bastion.com` to remote host
+- -W instruces SSH to forward the connection to target host and port
+- %h is the placeholder for `remote-server.com`
+- %p is the placeholder for the port (by default SSH is port 22)
