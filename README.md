@@ -259,11 +259,12 @@ The cert is:
 
 ### what is certificate chain
 3 levels:
-- Root cert
-- Immediate cert
-- Leaf cert (for SSL/TSL)
+- Root cert - belong to CA and preinstalled (trusted) by browser
+- Immediate cert - imterdiate between root and leaf cert, usually signed by root cert to issue leaf cert. Root cert can delegate signing task to immediate cert, which might be responsible for a specific domain. If a immediate cert is compromised, the root cert is safe, acting as a chain of trust.
+- Leaf cert (for SSL/TSL) - actual SSL/TLS cert used by a server for handshake
 
 What is the use of segmenting above?
+- Ensure a hierarchy chain of trust, harder to compromise the trust
 
 ## why do we sometimes need to manually install root cert in browser
 It could be in internal dev env, we are telling browser that we trust this CA
