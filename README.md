@@ -293,3 +293,11 @@ Application first needs to connect to database wallet to get credentials before 
 
 `.pfx/.p12` These are PKCS#12 files that often bundle both the certificate and private key in one encrypted file.
 
+### what is a bastian host
+The term "bastion host" comes from military architecture, where a bastion is a fortified place designed to protect vulnerable parts of a fortress. In computer networking, a bastion host plays a similar role—it acts as a fortified or secure server that sits on the edge of a network, protecting the internal network from external threats.
+
+Bastian host is also called jump server or jumbox.
+- why jump? because your first ssh into bastian host, then jump from jump server to remote server
+
+![bastianhost](https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2022/06/09/NM-diagram-061316-a.png)
+
