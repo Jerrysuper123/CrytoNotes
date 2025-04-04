@@ -1,5 +1,60 @@
 # CrytoNotes
 
+Great question — **SAML** and **OIDC** are both **authentication protocols** used for **Single Sign-On (SSO)** and identity federation. They let users log in once and access multiple systems without having to log in again.
+
+Here’s a breakdown of each:
+
+---
+
+### 🔐 **SAML** (Security Assertion Markup Language)
+- **Used by**: Enterprises, legacy systems, older SSO systems.
+- **Format**: XML-based.
+- **Flow**:
+  1. User tries to access an app (called the **Service Provider**, or SP).
+  2. App redirects the user to a **Identity Provider (IdP)** (e.g., Okta, ADFS).
+  3. User logs in there.
+  4. IdP returns a **SAML assertion** (XML token) saying, "Yes, this user is authenticated."
+  5. App trusts that token and logs the user in.
+
+- **Good for**: Older enterprise apps, especially ones that were built before modern APIs.
+
+---
+
+### 🌐 **OIDC** (OpenID Connect)
+- **Used by**: Modern apps, mobile, cloud-native systems.
+- **Format**: JSON-based (built on top of OAuth 2.0).
+- **Flow**:
+  1. User tries to log in.
+  2. App redirects them to an **OIDC Provider** (like Google, Auth0, AWS Cognito).
+  3. User logs in.
+  4. Provider returns a **JWT token** (ID Token) with user info.
+  5. App uses this token to authenticate the user.
+
+- **Good for**: Web and mobile apps, APIs, anything modern.
+
+---
+
+### 🥊 SAML vs OIDC (Quick Comparison)
+
+| Feature              | SAML                     | OIDC                          |
+|----------------------|--------------------------|-------------------------------|
+| Data format          | XML                      | JSON / JWT                    |
+| Built on             | Custom XML-based protocol| OAuth 2.0                     |
+| Token type           | SAML Assertion           | ID Token (JWT)                |
+| Use case             | Enterprise SSO           | Web/Mobile/App authentication |
+| Simpler to implement | ❌ Not really             | ✅ Yes                         |
+| Modern support       | ⚠️ Limited                | ✅ Excellent                   |
+
+---
+
+### 🧠 TL;DR:
+- **SAML** = older, XML-based, enterprise SSO.
+- **OIDC** = modern, JSON/JWT-based, used in web/mobile/cloud apps.
+
+If you're building or integrating SSO into a system today, **OIDC is generally the preferred option** unless you're stuck with older enterprise requirements.
+
+
+
 ## Cryptography what is it
 Science of scrambling message beyond recognition
 
