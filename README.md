@@ -1,5 +1,8 @@
 # CrytoNotes
 
+![root cert logics](https://github.com/user-attachments/assets/b4fbff25-133a-4d18-8feb-6b20a5686995)
+
+
 In macOS, a **root certificate** is typically presented as a `.cer`, `.crt`, or `.pem` file, and it is stored in the **System keychain** or **System Roots** keychain. You can view it using the **Keychain Access** app.
 
 ### 🧭 How to View a Root Certificate on macOS:
