@@ -1,5 +1,55 @@
 # CrytoNotes
 
+In macOS, a **root certificate** is typically presented as a `.cer`, `.crt`, or `.pem` file, and it is stored in the **System keychain** or **System Roots** keychain. You can view it using the **Keychain Access** app.
+
+### 🧭 How to View a Root Certificate on macOS:
+
+1. Open **Keychain Access**:
+
+   * Press `Cmd + Space`, type **Keychain Access**, and hit `Enter`.
+
+2. In the left sidebar, select **System Roots**.
+
+3. Click **Certificates** in the lower category list.
+
+4. You'll see a list of root certificates (e.g., `Apple Root CA`, `DigiCert Global Root CA`, etc.).
+
+5. Double-click a certificate to inspect it. You’ll see:
+
+   * **Name**
+   * **Expiration Date**
+   * **Public Key Info**
+   * **Fingerprints (SHA-1, SHA-256)**
+   * **Trust Settings**
+
+---
+
+### 📄 Example View (in plain text / PEM format):
+
+If you export a root certificate (right-click > Export), it might look like this in **PEM format**:
+
+```
+-----BEGIN CERTIFICATE-----
+MIIDdTCCAl2gAwIBAgIJAO2EZU28qvHoMA0GCSqGSIb3DQEBCwUAMFgxCzAJBgNV
+...
+JXcMeXQdlPVR1L5X7RKuMguEbXbGeVEkJTXvD7s=
+-----END CERTIFICATE-----
+```
+
+---
+
+### 📁 Where macOS Stores Root Certificates:
+
+* **System keychain path**: `/Library/Keychains/System.keychain`
+* **System Roots keychain path**: `/System/Library/Keychains/SystemRootCertificates.keychain`
+
+These files are not meant to be edited manually. Use **Keychain Access** or CLI tools like `security` or `certtool` for safer operations.
+
+---
+
+
+
+
 The error message:
 
 > **SSL certificate problem: unable to get local issuer certificate**
